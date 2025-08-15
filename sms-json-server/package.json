@@ -1,12 +1,13 @@
 {
   "name": "sms-json-server",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-  "start": "node server.js"
-},
-
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "json-server": "^0.17.3"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
