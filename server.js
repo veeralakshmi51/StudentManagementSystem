@@ -1,12 +1,11 @@
 const express = require('express');
 const path = require('path');
 const jsonServer = require('json-server');
-
-
 const cors = require('cors');
-app.use(cors());
 
 const app = express();
+app.use(cors());
+
 const PORT = process.env.PORT || 8080;
 
 const apiServer = jsonServer.create();
