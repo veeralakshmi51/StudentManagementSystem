@@ -7,14 +7,15 @@ import { Role } from '../EnumFolder/role';
 })
 export class AuthService {
   constructor(private http: HttpClient) {}
+  private baseUrl='http://localhost:3000';
   login(email: string, password: string, role: string): Observable<any> {
     let endpoint = '';
     if (role===Role.admin) {
-      endpoint = 'http://localhost:3002/admin';
+      endpoint = `${this.baseUrl}/admin`;
     } else if (role===Role.staff) {
-      endpoint = 'http://localhost:3001/Staffs';
+      endpoint = `${this.baseUrl}/Staffs`;
     } else if ( role===Role.student) {
-      endpoint = 'http://localhost:3000/Students';
+      endpoint = `${this.baseUrl}/Students`;
     }
     return this.http
       .get<any[]>(endpoint)

@@ -9,7 +9,7 @@ export class HttpserviceService {
 
   constructor(private http:HttpClient) { }
   private apiUrl='http://localhost:3000/Students';
-  private courseUrl='http://localhost:3003/Courses';
+  private courseUrl='http://localhost:3000/Courses';
   addNewStudent(student:studentDetails){
   console.log('New student details:',student);
 

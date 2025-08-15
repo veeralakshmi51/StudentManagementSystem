@@ -8,7 +8,7 @@ import { admin } from '../InterfaceFolder/studentDetails';
 export class AdminService {
 
   constructor(private http:HttpClient) { }
-  private apiUrl='http://localhost:3002/admin';
+  private apiUrl='http://localhost:3000/admin';
   
   addNewAdmin(admin:admin){
     return this.http.post<admin>(`${this.apiUrl}`,admin);
