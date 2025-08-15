@@ -1,0 +1,35 @@
+<div class="m-4 p-4 bg-light shadow-lg d-flex border border-2 rounded" *ngIf="student">
+  <div class="col-md-6 p-2">
+    <h4 class="mb-3 text-info">Student Personal Information</h4>
+    <hr>
+    <p><strong>First Name:</strong> {{ student.firstName }}</p>
+    <p><strong>Last Name:</strong> {{ student.lastName }}</p>
+    <p><strong>Email:</strong> {{ student.email }}</p>
+    <p><strong>Department:</strong> {{ student.department }}</p>
+    <p><strong>Roll Number:</strong> {{ student.rollNumber }}</p>
+    <p><strong>Admission Date:</strong> {{ student.admissionDate | date:'medium' }}</p>
+    <p><strong>Phone:</strong> {{ student.phone }}</p>
+    <p><strong>Address:</strong> {{ student.address }}</p>
+  </div>
+  <div class="col-md-6 d-grid justify-content-end p-2">
+    <img
+      src="{{ student.profileImg }}"
+      alt="profile"
+      height="100"
+      width="100"
+      style="border-radius: 50px;"
+    />
+  </div>
+</div>
+
+<div class="m-4 p-4 bg-light shadow-lg d-flex border border-2" *ngIf="student">
+
+  <div class="w-100">
+    <h4 class="text-info">Course Details</h4>
+    <hr>
+    <p ><strong class="m-2">ID:</strong>{{student.id}}</p>
+    <p><strong class="m-2">Course Name:</strong>{{student.course}}</p>
+  </div>
+</div>
+
+<router-outlet></router-outlet>

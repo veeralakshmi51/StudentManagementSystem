@@ -1,0 +1,14 @@
+<div>
+  <header
+    style="background-color: #c2bbbb; color: black; min-height: 80px;"
+    class="d-flex justify-content-between align-items-center"
+  >
+    <h3 *ngIf="role === 'Admin'" class="ps-3" >Admin Dashboard</h3>
+    <h3 *ngIf="role === 'Staff'" class="ps-3">Staff Dashboard</h3>
+    <h3 *ngIf="role === 'Student'" class="ps-3">Student Dashboard</h3>
+
+      <nav>
+        <i class="bi bi-arrow-right-square-fill fs-3 pe-4" (click)="logout()" style="cursor: pointer;"></i>
+      </nav>
+  </header>
+</div>

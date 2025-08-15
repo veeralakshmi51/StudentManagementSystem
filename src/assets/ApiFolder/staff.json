@@ -1,0 +1,64 @@
+{
+  "Staffs": [
+    {
+      "name": "Veeralakshmi",
+      "password": "123456",
+      "email": "Veeralakshmi@gmail.com",
+      "phone": 987654326,
+      "department": "Engineering and Technology",
+      "designation": "Head of Department",
+      "joinDate": "2025-08-09",
+      "staffId": 6,
+      "role": "Staff",
+      "id": "1d3f"
+    },
+    {
+      "name": "karthiga",
+      "password": "76858",
+      "email": "karthiga@gmail.com",
+      "phone": 7654345623,
+      "department": "Engineering and Technology",
+      "designation": "Head of Department",
+      "joinDate": "2025-08-08",
+      "staffId": 4,
+      "role": "Staff",
+      "id": "2704"
+    },
+    {
+      "name": "mahadevi",
+      "password": "12345",
+      "email": "lakshmi",
+      "phone": 5476869787,
+      "department": "Commerce & Management",
+      "designation": "Lecturer",
+      "joinDate": "2025-08-12",
+      "staffId": 3,
+      "role": "Staff",
+      "id": "3d49"
+    },
+    {
+      "id": "2cb1",
+      "name": "Suchi",
+      "password": "1234",
+      "email": "suchi@gmail.com",
+      "phone": 7654345678,
+      "department": "Commerce & Management",
+      "designation": "Associate Professor",
+      "joinDate": "2010-07-14",
+      "staffId": 1,
+      "role": "Staff"
+    },
+    {
+      "name": "mahima",
+      "password": "1234",
+      "email": "mahi@gmail.com",
+      "phone": 2544786782,
+      "department": "IT and Technology",
+      "designation": "Associate Professor",
+      "joinDate": "2025-08-14",
+      "staffId": 3,
+      "role": "Staff",
+      "id": "bc7d"
+    }
+  ]
+}

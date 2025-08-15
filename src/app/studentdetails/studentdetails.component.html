@@ -1,0 +1,124 @@
+<div class="m-4" *ngIf="students.length > 0">
+  <div>
+    <div class="d-flex justify-content-between">
+      <h4 class="text-secondary text-center">Student List Details</h4>
+      <button routerLink="/staffDashboard" class="btn btn-warning">
+        Go back
+      </button>
+    </div>
+    <hr />
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <!-- <th class="text-center text-info">Student ID</th> -->
+          <!-- <th class="text-center text-info">Email</th> -->
+          <th class="text-center text-info">Roll Number</th>
+          <th class="text-center text-info">Student Name</th>
+
+          <th class="text-center text-info">Department</th>
+          <!-- <th class="text-center text-info">Admission Date</th> -->
+          <th class="text-center text-info">Added Course</th>
+          <th class="text-center text-info">Attendance</th>
+          <th class="text-center text-info">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="
+            let student of students
+              | paginate : { itemsPerPage: 6, currentPage: page };
+            let i = index
+          "
+        >
+          <!-- <td class="text-center">{{ student.studentId }}</td> -->
+          <td class="text-center">{{ student.rollNumber }}</td>
+
+          <td>{{ student.firstName }} {{ student.lastName }}</td>
+          <!-- <td class="text-center">{{ student.email }}</td> -->
+          <td class="text-center">{{ student.department }}</td>
+          <!-- <td class="text-center">
+            {{ student.admissionDate | date : "dd-MM-yyyy" }}
+          </td> -->
+          <td class="text-center">{{ student.course || "Not Assigned" }}</td>
+          <td class="text-center">
+            <span [class.text-success]="student.attendance === 'Present'"
+             [class.text-danger]="student.attendance === 'Absent'">
+             {{student.attendance || 'Not Marked'}}
+            </span>
+            
+          </td>
+          <td class="text-center">
+            <button
+              type="button"
+              class="btn btn-success mx-2"
+              (click)="addCourse(student)"
+              data-bs-toggle="modal"
+              data-bs-target="#myModal"
+            >
+              <i class="bi bi-plus-circle-fill"></i> Add Course
+            </button>
+
+            <button class="btn btn-info mx-2" (click)="markstudentAttendance(student,'Present')" >✔️</button>
+            <button class="btn btn-warning" (click)="markstudentAttendance(student,'Absent')">❌</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Add a New Course</h4>
+        <button
+          type="button"
+          class="btn btn-close btn btn-info"
+          data-bs-dismiss="modal"
+          aria-label="close"
+        ></button>
+      </div>
+
+      <div class="modal-body">
+        <form [formGroup]="courseForm" (ngSubmit)="submitForm()">
+          <div class="row">
+            <div class="form-floating">
+              <select
+                class="form-select"
+                formControlName="courseName"
+                id="course"
+                aria-label="select"
+              >
+                <option value="">Select Course</option>
+                <option *ngFor="let course of courses">{{ course }}</option>
+              </select>
+              <label class="ms-2">Course Name</label>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="modal-footer">
+        <button
+          type="submit"
+          class="btn btn-success"
+          data-bs-dismiss="modal"
+          (click)="submitForm()"
+        >
+          Submit
+        </button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<pagination-controls
+  (pageChange)="page = $event"
+  previousLabel="Prev"
+  nextLabel="Next"
+  class="d-flex justify-content-center mt-3"
+></pagination-controls>

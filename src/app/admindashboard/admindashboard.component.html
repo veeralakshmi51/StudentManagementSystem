@@ -1,0 +1,84 @@
+<div class="d-flex">
+  <div class="card text-center m-3" style="width: 18rem">
+    <div class="card-body">
+      <i class="bi bi-person-fill" style="font-size: 5rem; color: #f4c583"></i>
+      <h4 class="card-text">Staff Count</h4>
+      <div class="mt-2">
+        <p class="text-muted">Total Staff:{{ staffCount }}</p>
+      </div>
+      <div class="progress" style="height: 10px">
+        <div
+          class="progress-bar"
+          role="progressbar"
+          [style.width.%]="calculateStaffProgress(staffCount)"
+          [ngClass]="getProgress(staffCount)"
+        >
+          <!-- {{ staffCount }} -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card text-center m-3" style="width: 18rem">
+    <div class="card-body">
+      <i
+        class="bi bi-mortarboard-fill"
+        style="font-size: 5rem; color: #9fd0d4"
+      ></i>
+      <h4 class="card-text">Student Count</h4>
+      <div class="mt-2">
+        <p class="text-muted">Total Student:{{ studentCount }}</p>
+      </div>
+      <div class="progress" style="height: 10px">
+        <div
+          class="progress-bar"
+          role="progressbar"
+          [style.width.%]="calculateStudentProgress(studentCount)"
+          [ngClass]="getProgressStudent(studentCount)"
+        >
+          <!-- {{ staffCount }} -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card text-center m-3" style="width: 18rem">
+    <div class="card-body">
+      <i class="bi bi bi-book-half" style="font-size: 5rem; color: #ec8a8a"></i>
+      <h4 class="card-text">All Courses</h4>
+      <div class="mt-2">
+        <p class="text-muted">Total Courses:{{ coursesCount }}</p>
+      </div>
+      <div class="progress" style="height: 10px">
+        <div
+          class="progress-bar"
+          role="progressbar"
+          [style.width.%]="calculateCourseProgress(coursesCount)"
+          [ngClass]="getProgressCourses(coursesCount)"
+        >
+          <!-- {{ staffCount }} -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card text-center m-3" style="width: 16rem">
+    <div class="card-body">
+      <i class="bi bi-people-fill" style="font-size: 5rem; color: #c59cf3"></i>
+      <h4 class="card-text">Total People</h4>
+      <div class="mt-2">
+        <p class="text-muted">Total Users:{{ studentCount + staffCount }}</p>
+      </div>
+      <div class="progress" style="height: 10px">
+        <div
+          class="progress-bar"
+          role="progressbar"
+          [style.width.%]="calculateTotal(studentCount)"
+          [ngClass]="getTotal(studentCount)"
+        >
+          <!-- {{ staffCount }} -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div>
+  <app-admin></app-admin>
+</div>

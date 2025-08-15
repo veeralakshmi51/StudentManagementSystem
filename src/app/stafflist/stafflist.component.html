@@ -1,0 +1,70 @@
+<div class="m-4" *ngIf="staffs.length > 0">
+  <div class="m-4">
+    <div class="d-flex justify-content-between">
+      <h4 class="text-secondary text-center">Staff List Details</h4>
+      <button routerLink="/adminDashboard" class="btn btn-warning">
+        Go back to Dashboard
+      </button>
+    </div>
+
+    <hr />
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th class="text-center text-info">Staff ID</th>
+          <th class="text-center text-info">Staff Name</th>
+          <th class="text-center text-info">Designation</th>
+          <th class="text-center text-info">Email</th>
+          <th class="text-center text-info">Department</th>
+          <th class="text-center text-info">Join Date</th>
+          <th class="text-center text-info">Phone</th>
+          <th class="text-center text-info">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="
+            let staff of staffs
+              | paginate : { itemsPerPage: 5, currentPage: page };
+            let i = index
+          "
+        >
+          <td class="text-center">{{ staff.staffId }}</td>
+          <td class="text-center">
+            {{ staff.name }}
+          </td>
+          <td class="text-center">{{ staff.designation }}</td>
+          <td class="text-center">{{ staff.email }}</td>
+          <td class="text-center">{{ staff.department }}</td>
+          <td class="text-center">
+            {{ staff.joinDate | date : "dd-MM-yyyy" }}
+          </td>
+          <td class="text-center">{{ staff.phone }}</td>
+          <td class="text-center">
+            <button
+              type="button"
+              class="btn btn-info mx-2"
+              (click)="onEdit(staff.id ?? '')"
+            >
+              <i class="bx bx-edit-alt"></i>
+            </button>
+
+            <button
+              type="button"
+              class="btn btn-danger"
+              (click)="onDelete(staff.id ?? '')"
+            >
+              <i class="bx bxs-trash"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<pagination-controls
+  (pageChange)="page = $event"
+  previousLabel="Prev"
+  nextLabel="Next"
+  class="d-flex justify-content-center mt-4"
+></pagination-controls>

@@ -1,0 +1,91 @@
+{
+  "Courses": [
+    {
+      "name": "Computer Science Engineering"
+    },
+    {
+      "name": "Mechanical Engineering"
+    },
+    {
+      "name": "Civil Engineering"
+    },
+    {
+      "name": "Electrical & Electronics Engineering'"
+    },
+    {
+      "name": "Information Technology'"
+    },
+    {
+      "name": "Electronics & Communication Engineering"
+    },
+    {
+      "name": "Artificial Intelligence & Data Science"
+    },
+    {
+      "name": "Robotics Engineering"
+    },
+    {
+      "name": "B.Sc. Computer Science"
+    },
+    {
+      "name": "Software Engineering"
+    },
+    {
+      "name": "Cloud Computing"
+    },
+    {
+      "name": "Web Development"
+    },
+    {
+      "name": "B.Com (General)"
+    },
+    {
+      "name": "'B.Com (Accounting & Finance)"
+    },
+    {
+      "name": "B.Com (Banking & Insurance)"
+    },
+    {
+      "name": "BBA (Bachelor of Business Administration)"
+    },
+    {
+      "name": "MBA (Master of Business Administration)"
+    },
+    {
+      "name": "B.Sc. Physics"
+    },
+    {
+      "name": "B.Sc. Chemistry"
+    },
+    {
+      "name": "B.Sc. Mathematics"
+    },
+    {
+      "name": "B.Sc. Biotechnology"
+    },
+    {
+      "name": "B.Sc. Microbiology"
+    },
+    {
+      "name": "B.Sc. Zoology"
+    },
+    {
+      "name": "B.Sc. Botany"
+    },
+    {
+      "name": "MBBS"
+    },
+    {
+      "name": "BDS (Dental)"
+    },
+    {
+      "name": "BPT (Physiotherapy)"
+    },
+    {
+      "name": "B.Sc. Nursing"
+    },
+    {
+      "name": "B.Pharm (Pharmacy)"
+    }
+  ]
+}

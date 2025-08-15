@@ -1,0 +1,105 @@
+<div class="container">
+  <div class="m-4 p-4 border border-2 shadow-lg rounded ">
+    <h2 class="text-center text-info">Staff Application Form</h2>
+    <hr style="width: 50%; margin: auto" />
+    <br />
+    <form [formGroup]="staffLoginForm" (ngSubmit)="loginStaff()">
+      <div class="row m-4">
+        <div class="col-md-6 form-floating">
+          <input
+            type="text"
+            placeholder="Enter name"
+            formControlName="name"
+            class="form-control"
+          />
+          <label class="mx-2">Name</label>
+        </div>
+        <div class="col-md-6 form-floating">
+          <input
+            type="email"
+            placeholder="Enter name"
+            formControlName="email"
+            class="form-control"
+          />
+          <label class="mx-2">Email</label>
+        </div>
+      </div>
+      <div class="row m-4">
+        <div class="col-md-6 form-floating">
+          <input
+            type="text"
+            placeholder="Enter role"
+            formControlName="role"
+            class="form-control"
+          />
+          <label class="mx-2">Role</label>
+        </div>
+        <div class="col-md-6 form-floating">
+          <input
+            type="password"
+            placeholder="Enter password"
+            formControlName="password"
+            class="form-control"
+          />
+          <label class="mx-2">Password</label>
+        </div>
+      </div>
+      <div class="row m-4">
+        <div class="col-md-6 form-floating">
+          <input
+            type="number"
+            placeholder="Enter staffId"
+            formControlName="staffId"
+            class="form-control"
+          />
+          <label class="mx-2">StaffId</label>
+        </div>
+       <div class="col-md-6 form-floating">
+          <select class="form-select" formControlName="department" id="department">
+            <option value="">Select Department</option>
+            <option *ngFor="let department of departments">{{ department }}</option>
+          </select>
+
+          <label class="ms-2" for="department">Department</label>
+        </div>
+      </div>
+      <div class="row m-4">
+        <div class="col-md-4 form-floating">
+          <select class="form-select" formControlName="designation" id="designation">
+            <option value="">Select Designation</option>
+            <option *ngFor="let designation of designations">{{ designation }}</option>
+          </select>
+
+          <label class="ms-2" for="designation">Designation</label>
+        </div>
+        <div class="col-md-4 form-floating">
+          <input
+            type="date"
+            placeholder="Enter date"
+            formControlName="joinDate"
+            class="form-control"
+          />
+          <label class="mx-2">Join Date</label>
+        </div>
+        <div class="col-md-4 form-floating">
+          <input
+            type="number"
+            placeholder="Enter phoneno"
+            formControlName="phone"
+            class="form-control"
+          />
+          <label class="mx-2">Phone</label>
+        </div>
+      </div>
+      <div class="d-grid justify-content-end m-4">
+        <div class="d-flex">
+          <button class="btn btn-info mx-2" routerLink="/staff-list">Back to Home</button>
+          <button class="btn btn-warning mx-2" type="submit">
+            {{isEdit?'Update Staff':'Submit'}}
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+

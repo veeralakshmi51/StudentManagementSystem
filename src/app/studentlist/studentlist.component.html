@@ -1,0 +1,82 @@
+<div class="m-4" *ngIf="students.length > 0">
+  <div>
+    <div class="d-flex justify-content-between">
+      <h4 class="text-secondary text-center">Student List Details</h4>
+      <button routerLink="/adminDashboard" class="btn btn-warning">
+        Go back to Dashboard
+      </button>
+    </div>
+    <hr />
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th class="text-center text-info">Student ID</th>
+          <!-- <th class="text-center">Profile</th> -->
+          <th class="text-center text-info">Student Name</th>
+          <th class="text-center text-info">Email</th>
+          <th class="text-center text-info">Roll Number</th>
+          <th class="text-center text-info">Department</th>
+          <th class="text-center text-info">Admission Date</th>
+          <!-- <th class="text-center">Phone</th> -->
+          <th class="text-center text-info">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="
+            let student of students
+              | paginate : { itemsPerPage: 6, currentPage: page };
+            let i = index
+          "
+        >
+          <td class="text-center">{{ student.studentId }}</td>
+
+          <td>
+            <img
+              *ngIf="student.profileImg"
+              [src]="student.profileImg"
+              alt="Profile"
+              width="40"
+              height="40"
+              style="border-radius: 50%"
+              class="mx-2"
+            />
+            {{ student.firstName }} {{ student.lastName }}
+          </td>
+          <td class="text-center">{{ student.email }}</td>
+          <td class="text-center">{{ student.rollNumber }}</td>
+          <td class="text-center">{{ student.department }}</td>
+          <td class="text-center">
+            {{ student.admissionDate | date : "dd-MM-yyyy" }}
+          </td>
+          <td class="text-center">
+            <button
+              aria-label="edit"
+              type="button"
+              class="btn btn-info mx-2"
+              (click)="onEdit(student.id ?? '')"
+            >
+              <i class="bx bx-edit-alt"></i>
+            </button>
+
+            <button
+              aria-label="delete"
+              type="button"
+              class="btn btn-danger"
+              (click)="onDelete(student.id ?? '')"
+            >
+              <i class="bx bxs-trash"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<pagination-controls
+  (pageChange)="page = $event"
+  previousLabel="Prev"
+  nextLabel="Next"
+  class="d-flex justify-content-center mt-3"
+></pagination-controls>

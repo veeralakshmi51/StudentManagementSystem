@@ -1,0 +1,88 @@
+<div class="d-flex">
+  <div
+    class="text-white p-3 vh-100 position-fixed"
+    style="width: 250px; background-color: #0c969c"
+  >
+    <div class="d-flex flex-row">
+      <img src="assets/images/logo.png" alt="logo" class="img-fluid logo" />
+      <h1 class="text-white mx-4">SMS</h1>
+    </div>
+    <hr />
+
+    <ul class="nav flex-column">
+      <ng-container *ngIf="role === 'Admin'">
+        <li class="nav-item mb-2">
+          <a routerLink="/admin" class="nav-link text-white fs-5">
+            <i class="bi bi-person-plus me-4"></i> Create Admin</a
+          >
+        </li>
+        <li class="nav-item mb-2">
+          <a routerLink="/staff" class="nav-link text-white fs-5"
+            ><i class="bi bi-person-badge me-4"></i>Create Staff</a
+          >
+        </li>
+        <li class="nav-item mb-2">
+          <a routerLink="/student" class="nav-link text-white fs-5"
+            ><i class="bi bi-person-fill-add me-4"></i>Create Student</a
+          >
+        </li>
+        <li class="nav-item mb-2">
+          <a routerLink="/staff-list" class="nav-link text-white fs-5"
+            ><i class="bi bi-people me-4"></i>Staff List Details</a
+          >
+        </li>
+        <li class="nav-item mb-2">
+          <a routerLink="/student-list" class="nav-link text-white fs-5"
+            ><i class="bi bi-mortarboard me-4"></i>Student Details</a
+          >
+        </li>
+      </ng-container>
+
+      <ng-container *ngIf="role === 'Staff'">
+        <li class="nav-item mb-2">
+          <a routerLink="/staffDashboard" class="nav-link text-white fs-5"
+            ><i class="bi bi-house-door me-4"></i>Staff schedule</a
+          >
+        </li>
+        <li class="nav-item mb-2">
+          <a routerLink="/staffDashboard/studentDetails" class="nav-link text-white fs-5"
+            ><i class="bi bi-mortarboard me-4"></i>Add course</a
+          >
+        </li>
+        <!-- <li class="nav-item mb-2">
+          <a routerLink="/courses" class="nav-link text-white"
+            ><i class="bi bi-book me-4"></i>Courses Details</a
+          >
+        </li> -->
+      </ng-container>
+
+      <ng-container *ngIf="role === 'Student'">
+        <li class="nav-item mb-2">
+          <a [routerLink]="['/studentDashboard',studentId]" class="nav-link text-white fs-5"
+            ><i class="bi bi-journal-bookmark me-4"></i> My Info</a
+          >
+        </li>
+         <!-- <li class="nav-item mb-2">
+          <a routerLink="/studentMark" class="nav-link text-white"
+            ><i class="bi bi-journal-bookmark me-4"></i> My Course Details</a
+          >
+        </li> -->
+      </ng-container>
+
+      <li class="nav-item">
+        <a
+          (click)="logout()"
+          class="nav-link text-white fs-5"
+          style="cursor: pointer"
+        >
+          <i class="bi bi-box-arrow-right me-4"></i>Logout</a
+        >
+      </li>
+    </ul>
+  </div>
+
+  <div class="flex-grow-1 main-content">
+    <app-header></app-header>
+    <router-outlet></router-outlet>
+  </div>
+</div>

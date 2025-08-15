@@ -1,0 +1,41 @@
+.login {
+  height: 100vh;
+  background: linear-gradient(to right, #b5b7ba, #e3e4e6);
+}
+
+.login-box {
+  width: 850px;
+  height: 550px;
+  background-color: #fff;
+  overflow: hidden;
+  border-bottom-right-radius: 70px;
+  border-top-left-radius: 100px;
+}
+
+.login-image {
+  background-color: #d1e5d3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.login-image img {
+  max-width: 80%;
+  display: block;
+  height: auto;
+  border-top-right-radius: 70px;
+  border-end-start-radius: 70px;
+}
+@media (max-width: 768px) {
+  .login-box {
+    flex-direction: column;
+    border-radius: 50px; 
+  }
+
+  .login-image {
+    display: none; 
+  }
+}
+
+

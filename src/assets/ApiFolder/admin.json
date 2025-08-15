@@ -1,0 +1,28 @@
+{
+  "admin": [
+    {
+      "id": "6050",
+      "name": "admin",
+      "password": "admin",
+      "adminId": "1",
+      "email": "admin@gmail.com",
+      "role": "Admin"
+    },
+    {
+      "id": "a9bd",
+      "name": "New Admin",
+      "password": "newadmin",
+      "adminId": "2",
+      "email": "newAdmin@gmail.com",
+      "role": "Admin"
+    },
+    {
+      "id": "99ed",
+      "name": "one",
+      "password": "one",
+      "adminId": "2",
+      "email": "one@gmail.com",
+      "role": "Admin"
+    }
+  ]
+}
