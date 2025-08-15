@@ -30,17 +30,33 @@
 // app.listen(PORT, () => {
 //   console.log(`✅ Server running on port ${PORT}`);
 // });
-const path = require('path');
 const express = require('express');
-const app = express();
+const path = require('path');
+const cors = require('cors');
 
+const app = express();
+const port = process.env.PORT || 10000;
+
+// Enable CORS
+app.use(cors());
+
+// Serve Angular static files
 app.use(express.static(path.join(__dirname, 'dist/httpclient')));
 
+// Example JSON server API (if needed)
+const jsonServer = require('json-server');
+const apiServer = jsonServer.create();
+const router = jsonServer.router('db.json');
+const middlewares = jsonServer.defaults();
+apiServer.use(middlewares);
+apiServer.use(router);
+app.use('/api', apiServer);
+
+// For Angular routes
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist/httpclient/index.html'));
 });
 
-const PORT = process.env.PORT || 10000;
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+app.listen(port, () => {
+  console.log(`✅ Server running on port ${port}`);
 });
