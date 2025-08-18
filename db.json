@@ -186,6 +186,18 @@
       "staffId": 6,
       "role": "Staff",
       "id": "4VC0qDm"
+    },
+    {
+      "name": "priya",
+      "password": "1234",
+      "email": "priya@gmail.com",
+      "phone": 6544245677,
+      "department": "Commerce & Management",
+      "designation": "Associate Professor",
+      "joinDate": "2025-08-18",
+      "staffId": 4,
+      "role": "Staff",
+      "id": "E05-m4G"
     }
   ],
   "Students": [
