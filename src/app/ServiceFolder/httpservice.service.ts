@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { staffDetails, studentDetails } from '../InterfaceFolder/studentDetails';
+import { environment } from './environment';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ import { staffDetails, studentDetails } from '../InterfaceFolder/studentDetails'
 export class HttpserviceService {
 
   constructor(private http:HttpClient) { }
-  private rootUrl='http://localhost:3000';
+  private rootUrl=environment.apiUrl;
   private apiUrl=`${this.rootUrl}/Students`
   private courseUrl=`${this.rootUrl}/Courses`;
   addNewStudent(student:studentDetails){

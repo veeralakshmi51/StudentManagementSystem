@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { staffDetails } from '../InterfaceFolder/studentDetails';
+import { environment } from './environment';
 @Injectable({
   providedIn: 'root'
 })
 export class StaffService {
 
   constructor(private http:HttpClient) { }
-  private rootUrl='http://localhost:3000';
+  private rootUrl=environment.apiUrl;
     private apiUrl=`${this.rootUrl}/Staffs`;
   
     addNewStaff(staff:staffDetails){
