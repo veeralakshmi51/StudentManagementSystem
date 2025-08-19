@@ -7,7 +7,8 @@ import { staffDetails } from '../InterfaceFolder/studentDetails';
 export class StaffService {
 
   constructor(private http:HttpClient) { }
-    private apiUrl='http://localhost:3000/Staffs';
+  private rootUrl='http://localhost:3000';
+    private apiUrl=`${this.rootUrl}/Staffs`;
   
     addNewStaff(staff:staffDetails){
     console.log('New student details:',staff);

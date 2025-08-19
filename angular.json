@@ -20,6 +20,8 @@
             "tsConfig": "tsconfig.app.json",
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": ["src/styles.css", "node_modules/ngx-toastr/toastr.css"],
+
+            
             "scripts": []
           },
           "configurations": {
@@ -41,6 +43,7 @@
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true
+              
             }
           },
           "defaultConfiguration": "production"
@@ -52,7 +55,8 @@
               "browserTarget": "httpclient:build:production"
             },
             "development": {
-              "browserTarget": "httpclient:build:development"
+              "browserTarget": "httpclient:build:development",
+              "proxyConfig": "proxy.config.json"
             }
           },
           "defaultConfiguration": "development"

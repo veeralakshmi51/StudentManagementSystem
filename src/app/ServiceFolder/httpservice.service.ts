@@ -8,8 +8,9 @@ import { staffDetails, studentDetails } from '../InterfaceFolder/studentDetails'
 export class HttpserviceService {
 
   constructor(private http:HttpClient) { }
-  private apiUrl='http://localhost:3000/Students';
-  private courseUrl='http://localhost:3000/Courses';
+  private rootUrl='http://localhost:3000';
+  private apiUrl=`${this.rootUrl}/Students`
+  private courseUrl=`${this.rootUrl}/Courses`;
   addNewStudent(student:studentDetails){
   console.log('New student details:',student);
 

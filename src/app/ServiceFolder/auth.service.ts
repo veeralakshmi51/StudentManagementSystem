@@ -2,12 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { Role } from '../EnumFolder/role';
+import { environment } from './environment';
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   constructor(private http: HttpClient) {}
-  private baseUrl='http://localhost:3000';
+  private baseUrl=environment.apiUrl;
+  
   login(email: string, password: string, role: string): Observable<any> {
     let endpoint = '';
     if (role===Role.admin) {

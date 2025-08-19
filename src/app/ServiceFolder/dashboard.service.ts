@@ -6,9 +6,10 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class DashboardService {
-  private staffUrl='http://localhost:3000/Staffs';
-  private studentUrl='http://localhost:3000/Students';
-  private coursesUrl='http://localhost:3000/Courses';
+  private rootUrl='http://localhost:3000';
+  private staffUrl=`${this.rootUrl}/Staffs`;
+  private studentUrl=`${this.rootUrl}/Students`;;
+  private coursesUrl=`${this.rootUrl}/Courses`;
   constructor(private http:HttpClient) { }
   getStaffList():Observable<any[]>{
  return this.http.get<any[]>(`${this.staffUrl}`);
