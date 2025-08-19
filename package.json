@@ -6,6 +6,8 @@
   "scripts": {
     "ng": "ng",
     "build": "ng build --configuration production",
+      "postinstall": "ng build --configuration production",
+
     "start": "npm run build && node server.js",
     "serve": "node server.js",
     "json-server": "json-server --watch db.json --port 3000",

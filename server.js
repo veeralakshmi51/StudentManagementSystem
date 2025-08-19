@@ -1,78 +1,39 @@
-// const express = require('express');
-// const path = require('path');
-// const jsonServer = require('json-server');
-// const cors = require('cors');
-
-// const app = express();
-// app.use(cors());
-
-// // Port from environment variable (Render will set this)
-// const PORT = process.env.PORT || 8080;
-
-// // JSON Server setup
-// const apiServer = jsonServer.create();
-// const router = jsonServer.router('db.json');
-// const middlewares = jsonServer.defaults();
-// apiServer.use(middlewares);
-// apiServer.use(router);
-
-// // Serve Angular build files
-// app.use(express.static(path.join(__dirname, 'dist/httpclient')));
-
-// // API routes go through JSON Server
-// app.use('/api', apiServer);
-
-// // For any other route, send back Angular's index.html
-// app.get('/*', (req, res) => {
-//   res.sendFile(path.join(__dirname, 'dist/httpclient/index.html'));
-// });
-
-// app.listen(PORT, () => {
-//   console.log(`✅ Server running on port ${PORT}`);
-// });
-// const express = require('express');
-// const path = require('path');
-// const cors = require('cors');
-
-// const app = express();
-// const port = process.env.PORT || 8080;
-
-// // Enable CORS
-// app.use(cors());
-
-// // Serve Angular static files
-// app.use(express.static(path.join(__dirname, 'dist/httpclient')));
-
-// // Example JSON server API (if needed)
-// const jsonServer = require('json-server');
-// const apiServer = jsonServer.create();
-// const router = jsonServer.router('db.json');
-// const middlewares = jsonServer.defaults();
-// apiServer.use(middlewares);
-// apiServer.use(router);
-// app.use('/api', apiServer);
-
-// // For Angular routes
-// app.get('*', (req, res) => {
-//   res.sendFile(path.join(__dirname, 'dist/httpclient/index.html'));
-// });
-
-// app.listen(port, () => {
-//   console.log(`✅ Server running on port ${port}`);
-// });
 const express = require("express");
 const path = require("path");
-const app = express();
+const jsonServer = require("json-server");
 
-// Serve only the static files form the dist directory
+const app = express();
+const PORT = process.env.PORT || 10000;
+
+// ============================
+// Serve Angular build (Angular 16 -> dist/httpclient)
+// ============================
 app.use(express.static(path.join(__dirname, "dist/httpclient")));
 
-app.get("/*", function (req, res) {
-  res.sendFile(path.join(__dirname, "dist/httpclient", "index.html"));
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "dist/httpclient/index.html"));
 });
 
-// Start the app by listening on the default port
-const PORT = process.env.PORT || 8080;
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "dist/httpclient/index.html"));
+});
+
+// ============================
+// JSON Server setup
+// ============================
+const apiServer = jsonServer.create();
+const router = jsonServer.router("db.json"); // Make sure db.json is in root folder
+const middlewares = jsonServer.defaults();
+
+apiServer.use(middlewares);
+apiServer.use(router);
+
+// Mount JSON server under /api
+app.use("/api", apiServer);
+
+// ============================
+// Start server
+// ============================
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+  console.log(`✅ Server is running on port ${PORT}`);
 });
