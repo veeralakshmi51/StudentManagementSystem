@@ -5,15 +5,13 @@
   "private": true,
   "scripts": {
     "ng": "ng",
-    "start": "node server.js",
     "build": "ng build --configuration production",
+    "start": "npm run build && node server.js",
     "serve": "node server.js",
     "json-server": "json-server --watch db.json --port 3000",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "dev": "concurrently \"ng serve --host 0.0.0.0\" \"json-server --watch db.json --port 3000\"",
-      "prod": "npm run build && node server.js"
-
+    "dev": "concurrently \"ng serve --host 0.0.0.0\" \"json-server --watch db.json --port 3000\""
   },
   "dependencies": {
     "@angular/animations": "^16.2.12",

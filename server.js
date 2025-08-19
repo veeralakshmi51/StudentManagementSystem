@@ -30,33 +30,49 @@
 // app.listen(PORT, () => {
 //   console.log(`✅ Server running on port ${PORT}`);
 // });
-const express = require('express');
-const path = require('path');
-const cors = require('cors');
+// const express = require('express');
+// const path = require('path');
+// const cors = require('cors');
 
+// const app = express();
+// const port = process.env.PORT || 8080;
+
+// // Enable CORS
+// app.use(cors());
+
+// // Serve Angular static files
+// app.use(express.static(path.join(__dirname, 'dist/httpclient')));
+
+// // Example JSON server API (if needed)
+// const jsonServer = require('json-server');
+// const apiServer = jsonServer.create();
+// const router = jsonServer.router('db.json');
+// const middlewares = jsonServer.defaults();
+// apiServer.use(middlewares);
+// apiServer.use(router);
+// app.use('/api', apiServer);
+
+// // For Angular routes
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, 'dist/httpclient/index.html'));
+// });
+
+// app.listen(port, () => {
+//   console.log(`✅ Server running on port ${port}`);
+// });
+const express = require("express");
+const path = require("path");
 const app = express();
-const port = process.env.PORT || 8080;
 
-// Enable CORS
-app.use(cors());
+// Serve only the static files form the dist directory
+app.use(express.static(path.join(__dirname, "dist/httpclient")));
 
-// Serve Angular static files
-app.use(express.static(path.join(__dirname, 'dist/httpclient')));
-
-// Example JSON server API (if needed)
-const jsonServer = require('json-server');
-const apiServer = jsonServer.create();
-const router = jsonServer.router('db.json');
-const middlewares = jsonServer.defaults();
-apiServer.use(middlewares);
-apiServer.use(router);
-app.use('/api', apiServer);
-
-// For Angular routes
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist/httpclient/index.html'));
+app.get("/*", function (req, res) {
+  res.sendFile(path.join(__dirname, "dist/httpclient", "index.html"));
 });
 
-app.listen(port, () => {
-  console.log(`✅ Server running on port ${port}`);
+// Start the app by listening on the default port
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });

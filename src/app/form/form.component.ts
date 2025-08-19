@@ -62,7 +62,7 @@ export class FormComponent implements OnInit{
         });
       }
     } else {
-      alert('fill correctly');
+      this.toast.show('fill correctly');
     }
   }
   onEdit(staff: staffDetails) {
