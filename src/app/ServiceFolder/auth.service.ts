@@ -17,6 +17,8 @@ export class AuthService implements OnInit{
   login(email: string, password: string, role: string): Observable<any> {
     let endpoint = '';
     if (role===Role.admin) {
+        console.log("API URL:", this.baseUrl);  // 👈 Add this
+
       endpoint = `${this.baseUrl}/admin`;
     } else if (role===Role.staff) {
       endpoint = `${this.baseUrl}/Staffs`;
