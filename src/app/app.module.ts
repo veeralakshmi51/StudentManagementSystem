@@ -53,7 +53,7 @@ import { StudentdetailsComponent } from './studentdetails/studentdetails.compone
     RouterOutlet,
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
-    // AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     AngularFireAuthModule,
     NgxPaginationModule

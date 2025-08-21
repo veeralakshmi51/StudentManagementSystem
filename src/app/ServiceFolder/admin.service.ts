@@ -7,11 +7,12 @@ import { environment } from './environment';
   providedIn: 'root'
 })
 export class AdminService {
+  
 
   constructor(private http:HttpClient) { }
   private rooturl=environment.apiUrl
     private apiUrl=`${this.rooturl}/admin`;
-
+  
   addNewAdmin(admin:admin){
     return this.http.post<admin>(`${this.apiUrl}`,admin);
   }

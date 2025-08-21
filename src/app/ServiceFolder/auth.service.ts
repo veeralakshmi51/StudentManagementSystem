@@ -1,12 +1,16 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { Role } from '../EnumFolder/role';
 import { environment } from './environment';
 @Injectable({
   providedIn: 'root',
 })
-export class AuthService {
+export class AuthService implements OnInit{
+   ngOnInit() {
+    console.log("Production mode:", environment.production);
+    console.log("API URL:", environment.apiUrl);
+  }
   constructor(private http: HttpClient) {}
   private baseUrl=environment.apiUrl;
   

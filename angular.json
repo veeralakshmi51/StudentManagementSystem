@@ -55,8 +55,7 @@
               "browserTarget": "httpclient:build:production"
             },
             "development": {
-              "browserTarget": "httpclient:build:development",
-              "proxyConfig": "proxy.config.json"
+              "browserTarget": "httpclient:build:development"
             }
           },
           "defaultConfiguration": "development"
