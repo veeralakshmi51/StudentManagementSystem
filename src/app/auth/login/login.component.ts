@@ -55,7 +55,7 @@ export class LoginComponent {
             this.router.navigate(['/staffDashboard']);
             break;
           case Role.student:
-            this.router.navigate(['/studentDashbioard',user.id]);
+            this.router.navigate(['/studentDashboard',user.id]);
             break;
         }
       } else {

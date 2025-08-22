@@ -26,6 +26,7 @@ import {environment} from 'src/app/ServiceFolder/environment';
 import { StudentmarkComponent } from './studentmark/studentmark.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { StudentdetailsComponent } from './studentdetails/studentdetails.component';
+import { AccessdeniedComponent } from './accessdenied/accessdenied.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { StudentdetailsComponent } from './studentdetails/studentdetails.compone
     StudentdashboardComponent,
     StaffdashboardComponent,
     StudentmarkComponent,
-    StudentdetailsComponent
+    StudentdetailsComponent,
+    AccessdeniedComponent
   ],
   imports: [
     BrowserModule,

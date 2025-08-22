@@ -13,6 +13,9 @@ import { FormsModule } from '@angular/forms';
 import { StaffdashboardComponent } from './staffdashboard/staffdashboard.component';
 import { StudentdetailsComponent } from './studentdetails/studentdetails.component';
 import { StudentmarkComponent } from './studentmark/studentmark.component';
+import { authguardGuard } from './authguard.guard';
+import { Role } from './EnumFolder/role';
+import { AccessdeniedComponent } from './accessdenied/accessdenied.component';
 
 const routes: Routes = [
   {
@@ -24,6 +27,8 @@ const routes: Routes = [
     path: 'login',
     component: LoginComponent,
   },
+  { path: 'access-denied', component:AccessdeniedComponent},
+
   // {
   //   path: 'student',
   //   component: StudentComponent,
@@ -72,57 +77,81 @@ const routes: Routes = [
         path: 'staff',
         component: FormComponent,
         title: 'Staff',
+        canActivate:[authguardGuard],
+        data:{role:Role.admin}
       },
       {
         path: 'staff-list',
         component: StafflistComponent,
         title: 'staffList',
+        canActivate:[authguardGuard],
+        data:{role:Role.admin}
       },
       {
         path: 'staff/:id',
         component: FormComponent,
         title: 'StaffById',
+        canActivate:[authguardGuard],
+        data:{role:Role.admin}
       },
       {
         path: 'student',
         component: StudentComponent,
         title: 'Student',
+        canActivate:[authguardGuard],
+        data:{role:Role.admin}
       },
       {
         path: 'student-list',
         component: StudentlistComponent,
         title: 'StudentList',
+        canActivate:[authguardGuard],
+        data:{role:Role.admin}
       },
       {
         path: 'student/:id',
         component: StudentComponent,
         title: 'StudentByID',
+        canActivate:[authguardGuard],
+        data:{role:Role.admin}
       },
       {
         path: 'admin',
         component: AdminComponent,
         title: 'Admin',
+        canActivate:[authguardGuard],
+        data:{role:Role.admin}
       },
       {
         path: 'adminDashboard',
         component: AdmindashboardComponent,
+        canActivate:[authguardGuard],
+        data:{role:Role.admin}
       },
       {
         path: 'staffDashboard',
         component: StaffdashboardComponent,
+        canActivate:[authguardGuard],
+        data:{role:Role.student}
       },
       {
         path: 'studentDashboard/:id',
         component: StudentdashboardComponent,
+        canActivate:[authguardGuard],
+        data:{role:Role.student}
       },
      
       {
         path:'staffDashboard/studentDetails',
         component:StudentdetailsComponent,
+        canActivate:[authguardGuard],
+        data:{role:Role.staff}
       },
       {
         path:'studentMark',
-        component:StudentmarkComponent
+        component:StudentmarkComponent,
+        canActivate:[authguardGuard],
+        data:{role:Role.staff}
       }
     ],
   },
