@@ -7,12 +7,10 @@ export const environment = {
     projectId: 'angular-sms-ef7ec',
     storageBucket: 'angular-sms-ef7ec.firebasestorage.app',
     messagingSenderId: '907308714880',
-    appId: '1:907308714880:web:cd7f3c504778e4375bcf65',
+    appId: '1:907308714880:web:cd7ff3c504778e4375bcf65',
     measurementId: 'G-KWFL9GRXKT',
   },
-    apiUrl: "http://localhost:3000"
+
+  apiUrl: 'http://localhost:3000',
 
 };
-
-
-

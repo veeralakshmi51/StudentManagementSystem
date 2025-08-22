@@ -54,7 +54,6 @@ export class StudentComponent implements OnInit {
     profileImg: new FormControl('', [Validators.required]),
   });
 
-  //calculate age
 
   constructor(
     private httpService: HttpserviceService,

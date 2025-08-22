@@ -6,18 +6,15 @@ import { environment } from './environment';
 @Injectable({
   providedIn: 'root',
 })
-export class AuthService implements OnInit{
-   ngOnInit() {
-    console.log("Production mode:", environment.production);
-    console.log("API URL:", environment.apiUrl);
-  }
+export class AuthService{
+  
   constructor(private http: HttpClient) {}
   private baseUrl=environment.apiUrl;
   
   login(email: string, password: string, role: string): Observable<any> {
     let endpoint = '';
     if (role===Role.admin) {
-        console.log("API URL:", this.baseUrl);  // 👈 Add this
+        console.log("API URL:", this.baseUrl); 
 
       endpoint = `${this.baseUrl}/admin`;
     } else if (role===Role.staff) {

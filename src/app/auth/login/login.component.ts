@@ -22,7 +22,6 @@ export class LoginComponent {
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [
       Validators.required,
-      Validators.required,
     ]),
     role: new FormControl('', [Validators.required]),
   });
@@ -56,7 +55,7 @@ export class LoginComponent {
             this.router.navigate(['/staffDashboard']);
             break;
           case Role.student:
-            this.router.navigate(['/studentDashboard',user.id]);
+            this.router.navigate(['/studentDashbioard',user.id]);
             break;
         }
       } else {
